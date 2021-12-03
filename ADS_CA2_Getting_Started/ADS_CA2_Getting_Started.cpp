@@ -50,6 +50,15 @@ void demoSimpleArrayedBinaryTree()
 {
 	int length = 20;
 	Node tree[20];
+	Node grown[40];
+
+	for (int i = 0; i < 20; i++) {
+		grown[i] = tree[i];
+	}
+
+	for (int i = 20; i < 40; i++) {
+		grown[i] = Node();
+	}
 
 	for (int i = 0; i < length; i++) {
 		tree[i] = Node();
