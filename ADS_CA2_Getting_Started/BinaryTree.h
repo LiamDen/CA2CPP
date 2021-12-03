@@ -60,9 +60,8 @@ public:
 			while (currentNode.data != -1)
 			{
 				//compare new data to currentNode.data
-
 				if (item <= currentNode.data)
-					position = 2 * position + 1; //if less, go left
+					position = 2 * position + 1;				//if less, go left
 				else
 					position = 2 * position + 2; 				//if more, go right
 
