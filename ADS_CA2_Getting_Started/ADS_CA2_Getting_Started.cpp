@@ -5,18 +5,46 @@
 #include "ADS_CA2_Getting_Started.h"
 
 void demoSimpleArrayedBinaryTree();
-
-int main()
-{
-	demoSimpleArrayedBinaryTree();
-}
+void demoPointerArrayedBinaryTree();
 
 struct Node {
 public:
 	int data; //name, age
 
+	Node(int data) : data(data) {};
 	Node() : data(-1) {};
 };
+
+int main()
+{
+	demoSimpleArrayedBinaryTree();
+
+	demoPointerArrayedBinaryTree();
+}
+
+void demoPointerArrayedBinaryTree()
+{
+	int length = 20;
+	Node* tree[20];
+
+	for (int i = 0; i < length; i++) {
+		tree[i] = nullptr;
+	}
+
+	//add new data
+	int data = 20;
+	int position = 0;
+
+	//find the parent node
+	auto currentNode = tree[position];
+
+	//no parent
+	if (currentNode == nullptr)
+	{
+		Node n(20);
+		currentNode = &n;
+	}
+}
 
 void demoSimpleArrayedBinaryTree()
 {
