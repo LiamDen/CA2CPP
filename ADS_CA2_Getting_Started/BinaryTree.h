@@ -45,8 +45,10 @@ public:
 
 	void add(int item)
 	{
+		int position = 0;
+
 		//root node? array[0] != nullptr
-		Node currentNode = dataArray[0];
+		Node currentNode = dataArray[position];
 
 		if (currentNode.data == -1)
 		{
@@ -59,12 +61,20 @@ public:
 			{
 				//compare new data to currentNode.data
 
-				//if less, go left
+				if (item <= currentNode.data)
+					position = 2 * position + 1; //if less, go left
+				else
+					position = 2 * position + 2; 				//if more, go right
 
-				//if more, go right
+				if (position >= capacity)
+					throw "No more space in tree - here is where we call a grow() function!";
+
+				//move down to left/right and repeat until we find an empty node (i.e. data == -1)
+				currentNode = dataArray[position];
 			}
 
 			//found an empty node on the correct side and so add the data
+			currentNode.data = item;
 		}
 	}
 
