@@ -3,17 +3,10 @@
 
 #include <iostream>
 #include "ADS_CA2_Getting_Started.h"
+#include "BinaryTree.h"
 
 void demoSimpleArrayedBinaryTree();
 void demoPointerArrayedBinaryTree();
-
-struct Node {
-public:
-	int data; //name, age
-
-	Node(int data) : data(data) {};
-	Node() : data(-1) {};
-};
 
 int main()
 {

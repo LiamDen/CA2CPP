@@ -1,9 +1,19 @@
 #include <iostream>
 
+struct Node {
+public:
+	int data; //name, age
+
+	Node(int data) : data(data) {};
+	Node() : data(-1) {};
+};
+
 class BinaryTree
 {
 public:
-	//array
+	//data array
+	Node* dataArray;
+
 	int count = 0;
 	int capacity = 0;
 
@@ -11,33 +21,51 @@ public:
 	{
 		count = 0;
 		capacity = 15;
+		dataArray = new Node[capacity];
 	}
 
 	BinaryTree(int numLevels) //levels = 3
 	{
 		count = 0;
 		capacity = pow(2, numLevels) - 1;
+		dataArray = new Node[capacity];
 	}
 
 	~BinaryTree()
 	{
-		for (int i = 0; i < capacity; i++)
-		{
-			//set to nullptr
-		}
+		//for (int i = 0; i < capacity; i++)
+		//{
+		//	//set to nullptr
+		//}
 
-		delete[] dataArray;
-		capacity = 0;
-		count = 0;;
+		//delete[] dataArray;
+		//capacity = 0;
+		//count = 0;;
 	}
 
 	void add(int item)
 	{
-		if (count < capacity)
+		//root node? array[0] != nullptr
+		Node currentNode = dataArray[0];
+
+		if (currentNode.data == -1)
 		{
+			currentNode.data = item;
+			return;
 		}
 		else
-			throw "Tree must be grown!";
+		{
+			while (currentNode.data != -1)
+			{
+				//compare new data to currentNode.data
+
+				//if less, go left
+
+				//if more, go right
+			}
+
+			//found an empty node on the correct side and so add the data
+		}
 	}
 
 	//print
