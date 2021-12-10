@@ -25,6 +25,38 @@ public:
 	}
 };
 
+/// @brief another example which is more complex because the measurable value (used for sorting the tree is calculated from w*h*d*volume)
+struct AmazonOrder {
+public:
+	float width, height, depth;
+	float priceByVolume; //big volume packages should cost more!
+
+	AmazonOrder() : width(0), height(0), depth(0), priceByVolume(0) {
+	}
+
+	AmazonOrder(float width, float height, float depth, float priceByVolume) {
+		this->width = width;
+		this->height = height;
+		this->depth = depth;
+		this->priceByVolume = priceByVolume;
+	}
+
+	/// @brief note how we must provide overridden versions of any operators used in the BinaryTree:add()
+	bool operator<=(const AmazonOrder& rhs) {
+		return this->getData() <= rhs.getData();
+	}
+
+	/// @brief note how we must provide overridden versions of any operators used in the BinaryTree:add()
+	bool operator==(const AmazonOrder& rhs) {
+		return this->getData() == rhs.getData();
+	}
+
+	/// @brief some internal calculatation to turn all the fields into a single comparable value
+	float getData() const {
+		return width * height * depth * priceByVolume;
+	}
+};
+
 /// @brief a node which stores data and is used by the BinaryTree class
 class Node {
 public:
@@ -34,6 +66,8 @@ public:
 	Node(int data) : data(data) {};
 
 	/// @brief note how we must provide any overridden operators used in the BinaryTree::add() - see line 136
+	//Node y;
+	// Node x = y;
 	Node& operator=(const Node& rhs)
 	{
 		//copy
@@ -138,7 +172,7 @@ public:
 
 	/// @brief print
 	void print() {
-		if (capacity == 0 || count == 0)
+		if (count == 0)
 			return;
 
 		for (int i = 0; i < capacity; i++)
