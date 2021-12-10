@@ -33,9 +33,6 @@ void demoPointerArrayedBinaryTreeInts()
 	//AmazonOrder defaultOrder;
 	//BinaryTree<AmazonOrder> amazonTree(4, defaultOrder);
 	//amazonTree.add(AmazonOrder(0.8, 0.2, 1.5, 9.99));
-	//amazonTree.add(4);
-	//amazonTree.add(3);
-	//amazonTree.add(1);
-	//amazonTree.add(5);
+	//amazonTree.add(AmazonOrder(0.6, 0.4, 2.5, 12.99));
 	//amazonTree.print();
 }
